@@ -1,0 +1,101 @@
+/* Colores clave del diseño */
+:root {
+    --color-off-black: #1f1f1f; 
+    --color-dark-grey: #333333; 
+    --color-green: hsl(75, 94%, 57%); 
+    --color-white: hsl(0, 0%, 100%);
+}
+
+/* Reset y centrado de la tarjeta */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Reemplaza si usas otra fuente */
+    background-color: var(--color-off-black);
+    color: var(--color-white);
+    font-size: 14px;
+    
+    /* 🚀 CENTRADO USANDO FLEXBOX */
+    display: flex;
+    flex-direction: column; /* Para centrar la tarjeta y el footer */
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+}
+
+/* Estilos de la Tarjeta de Perfil */
+.profile-card {
+    background-color: var(--color-dark-grey);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%; 
+    max-width: 380px; /* Responsividad: Límite de ancho */
+    margin-bottom: 20px; /* Espacio antes del footer */
+}
+
+/* Imagen y Textos */
+.profile-picture {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; 
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.location {
+    color: var(--color-green); 
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.description {
+    margin-bottom: 25px;
+    color: hsl(0, 0%, 85%); 
+}
+
+/* Botones */
+.social-links {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px; 
+}
+
+.link-button {
+    display: block; 
+    text-decoration: none; 
+    background-color: var(--color-off-black); 
+    color: var(--color-white);
+    padding: 12px 0; 
+    border-radius: 8px;
+    font-weight: 700;
+    /* Transición suave para el hover */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 🟢 EFECTO HOVER: SE ILUMBRA DE VERDE 🟢 */
+.link-button:hover {
+    background-color: var(--color-green); /* Fondo verde */
+    color: var(--color-off-black); /* Texto oscuro para contraste */
+    cursor: pointer; 
+}
+
+/* Estilo del pie de página */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    color: var(--color-white); 
+}
+.attribution a { 
+    color: var(--color-green); /* El enlace se ve mejor en verde */
+}
