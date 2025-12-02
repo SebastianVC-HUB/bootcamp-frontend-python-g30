@@ -1,0 +1,109 @@
+<!-- TODO:Crea tu primera página web semántica  -->
+<!-- Usando lo que hemos aprendido construye tu propia ppágina de presentación personal -->
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Personal - Sebastian Vicente Curiñaupa</title>
+</head>
+<body>
+    <header>
+        <!-- Cabecera principal con el nombre y navegación -->
+        <h1>Hola, soy Sebastian Vicente Curiñaupa</h1>
+        <nav>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de presentación personal -->
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+            <article>
+                <p>
+                    Soy estudiante de <strong>Ingeniería de Sistemas</strong> en quinto ciclo, apasionado por la tecnología, 
+                    la inteligencia artificial y el desarrollo de sistemas web y aplicaciones móbiles.
+                </p>
+                <p>
+                    Me gusta mucho aprender nuevas tecnología y me encuentro en constante formación.
+                    En mis ratos libres suelo hacer deportes y jugar video juegos
+                </p>
+            </article>
+            <figure>
+                <img src="fotoperfil.jpeg" alt="Foto de Sebastian Vicente Curiñaupa" width="200">
+                <figcaption>Foto de perfil.</figcaption>
+            </figure>
+        </section>
+
+        <!-- Sección de habilidades con tabla -->
+        <section id="habilidades">
+            <h2>Mis habilidades técnicas</h2>
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Área</th>
+                        <th>Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Programación en C / Python</td>
+                        <td>Intermedio</td>
+                    </tr>
+                    <tr>
+                        <td>Manejo de base de datos</td>
+                        <td>Intermedio</td>
+                    </tr>
+                    <tr>
+                        <td>Manejo de programa de desarrollo móvil </td>
+                        <td>Intermedio</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Aside con intereses -->
+        <aside>
+            <h2>Intereses personales</h2>
+            <ul>
+                <li>Robótica y automatización</li>
+                <li>Desarrollo web</li>
+                <li>Inteligencia artificial</li>
+                <li>Programación</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Formulario de contacto -->
+    <footer id="contacto">
+        <h2>Contáctame</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Formulario de contacto</legend>
+
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+
+                <label for="correo">Correo electrónico:</label><br>
+                <input type="email" id="correo" name="correo" required><br><br>
+
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Escribe tu mensaje aquí..."></textarea><br><br>
+
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </fieldset>
+        </form>
+
+        <p>Puedes encontrarme también en:</p>
+        <a href="https://www.linkedin.com/in/sebastianvc" target="_blank">LinkedIn</a> |
+        <a href="mailto:sebastianvc@example.com">Correo</a> |
+        <a href="#header">Volver arriba</a>
+
+        <p>&copy; 2025 - Sebastian Vicente Curiñaupa</p>
+    </footer>
+</body>
+</html>

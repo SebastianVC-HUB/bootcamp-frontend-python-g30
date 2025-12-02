@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>formularios + Inputs</h1>
+        <form>
+            <h2>Inputs</h2>
+            <!-- EL PLACE HOLDER SE USA PARA SEÑALAR A LOS USUARIOS LO QUE TIENEN QUE HACER O REALIZAR -->
+            <label for="text1">Input tipo texto</label>
+            <input type="text" placeholder="Ingresa algún texto" id="text1" />
+            
+            <label>
+                Input (solo lectura)
+                <input type="text" placeholder="Input de solo lectura" readonly value="Copia este codigo" />
+            </label>
+            
+            <label>
+                Input (Desactivado)
+                <input type="text" placeholder="Input de solo lectura" disabled />
+            </label>
+
+            <label>
+                Input tipo number
+                <input type="number" placeholder="Edad Ej. 18" min="18" max="90" />
+            </label>
+
+
+
+        </form>
+    </main>
+</body>
+</html>

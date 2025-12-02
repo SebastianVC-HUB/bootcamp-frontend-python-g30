@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria css</title>
+    <style>
+    /*Pseudo clase*/
+
+    /*Actúan cuando el usuario interactúa con un elemento*/
+    button{
+        background-color: red;
+    }
+    button:hover{
+        background-color: green;
+        cursor: pointer;
+    }
+    /*Pseudo elementos*/
+
+    /*Permiten crear partes virtuales de un elemento*/
+    p{
+        color: blue;
+    }
+    p::before{
+        content: '🧠';
+        color: green;
+    }
+    p::after{
+        content: '🎃' ;
+        color: green;
+    }
+    
+    /*Selector de multiples selectores*/
+    h1, h3, em{
+        border: 5px solid salmon;
+    }
+    </style>
+</head>
+<body>
+    <button>Click aquí!</button>
+    <p>Texto especial</p>
+    <article>
+        <h2>Bienvenido</h2>
+        <strong>Hola</strong>
+    </article>
+    <section>
+        
+        <h1>Título</h1>
+        <h3>Subtítulo</h3>
+        <em>texto con enfasis</em>
+        <a href="">Soy un link</a>
+    </section>
+</body>
+</html>
