@@ -1,0 +1,220 @@
+/* Custom properties para colores */
+:root {
+    --color-tomato: hsl(4, 100%, 67%);
+    --color-dark-slate-grey: hsl(234, 29%, 20%);
+    --color-charcoal-grey: hsl(235, 18%, 26%);
+    --color-grey: hsl(231, 7%, 60%);
+    --color-white: hsl(0, 0%, 100%);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-dark-slate-grey);
+    color: var(--color-dark-slate-grey);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* 1. Centrado de la Tarjeta en la Página */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 2. Estilo General de la Tarjeta */
+.signup-card {
+    background-color: var(--color-white);
+    padding: 24px;
+    border-radius: 30px; /* Bordes redondeados del diseño */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    
+    /* 🌟 Diseño de dos columnas para Escritorio con Grid 🌟 */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 40px;
+    max-width: 930px; /* Ancho máximo en escritorio */
+}
+
+/* Columna Izquierda (Contenido y Formulario) */
+.signup-content {
+    padding: 60px 20px 60px 40px; /* Espacio interno */
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-dark-slate-grey);
+    margin-bottom: 20px;
+}
+
+.signup-content p {
+    margin-bottom: 25px;
+}
+
+/* Estilo de la lista de características */
+.features-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 40px;
+}
+
+.features-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 10px;
+}
+
+/* Ícono de Checkmark como fondo */
+.features-list li::before {
+    content: url('./assets/images/icon-list.svg'); /* Ruta del ícono de check */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* Estilos del Formulario */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-email {
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    display: block; /* Para que ocupe su propia línea */
+}
+
+input[type="email"] {
+    padding: 15px 20px;
+    border: 1px solid var(--color-grey);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.submit-button {
+    background-color: var(--color-dark-slate-grey);
+    color: var(--color-white);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto hover del botón (Color tomate y sombra) */
+.submit-button:hover {
+    background: linear-gradient(to right, #ff6a3c, var(--color-tomato)); /* Gradiente de tomate */
+    box-shadow: 0 10px 20px rgba(255, 99, 71, 0.5);
+}
+
+/* Columna Derecha (Ilustración) */
+.signup-illustration {
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen */
+    padding: 20px;
+}
+
+.desktop-image {
+    width: 100%;
+    height: auto;
+}
+
+/* --- ESTILOS RESPONSIVOS (Móvil) --- */
+@media (max-width: 800px) {
+    body {
+        background-color: var(--color-white); /* Fondo blanco en móvil */
+    }
+
+    .page-container {
+        min-height: auto; /* Desactiva el centrado vertical para que fluya */
+    }
+    
+    .signup-card {
+        grid-template-columns: 1fr; /* Una sola columna */
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+        border-radius: 0; /* Sin bordes redondeados */
+    }
+    
+    /* En móvil, la imagen va arriba */
+    .signup-illustration {
+        order: -1; /* Mueve la imagen al principio */
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .desktop-image {
+        /* Usamos la imagen de móvil si está disponible, si no, la de desktop */
+        content: url('./assets/images/illustration-sign-up-mobile.svg'); 
+        border-radius: 0 0 16px 16px; /* Bordes en la parte inferior de la imagen */
+    }
+
+    .signup-content {
+        padding: 0 20px 40px 20px; /* Reduce el padding para móvil */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* --- ESTILO DEL MENSAJE DE ÉXITO (Opcional, requiere JS para mostrar/ocultar) --- */
+.success-message {
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    display: none; /* 🔴 Oculto por defecto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 400px;
+    position: absolute; /* Para que aparezca centrado sobre todo */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.success-message h2 {
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--color-dark-slate-grey);
+}
+
+.success-message img {
+    width: 64px;
+    height: 64px;
+}
+
+.dismiss-button {
+    width: 100%;
+    margin-top: 20px;
+    /* Copia los estilos del submit-button */
+    background-color: var(--color-dark-slate-grey);
+    color: var(--color-white);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Clase para mostrar el mensaje de éxito */
+/* .success-message.visible { display: flex; } */

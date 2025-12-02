@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign up Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Newsletter sign-up</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main>
-    <section>
-      <h1>Stay updated!</h1>
+    <div class="page-container">
+        <main class="signup-card">
+            
+            <section class="signup-content">
+                <h1>Stay updated!</h1>
 
-      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+                <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-      <ul>
-        <li>Product discovery and building what matters</li>
-        <li>Measuring to ensure updates are a success</li>
-        <li>And much more!</li>
-      </ul>
+                <ul class="features-list">
+                    <li>Product discovery and building what matters</li>
+                    <li>Measuring to ensure updates are a success</li>
+                    <li>And much more!</li>
+                </ul>
 
-      <form>
-        <label>
-          Email address
-          <input type="email" placeholder="email@company.com"/>
-        </label>
-        <input type="submit" value="Subscribe to monthly newsletter"/>
-      </form>
-    </section>
+                <form class="signup-form">
+                    <label for="email-input" class="label-email">Email address</label>
+                    <input type="email" id="email-input" placeholder="email@company.com" required/>
+                    <button type="submit" class="submit-button">Subscribe to monthly newsletter</button>
+                </form>
+            </section>
 
-    <section>
+            <section class="signup-illustration">
+                <img 
+                    src="./assets/images/illustration-sign-up-desktop.svg" 
+                    alt="Gráfico de estadísticas" 
+                    class="desktop-image"
+                >
+            </section>
 
-    </section>
-  </main>
+        </main>
+    </div>
+    
+    <div class="success-message hidden">
+        <img src="./assets/images/icon-success.svg" alt="Icono de éxito">
+        <h2>Thanks for subscribing!</h2>
+        <p>A confirmation email has been sent to <strong>ash@loremcompany.com</strong>. 
+        Please open it and click the button inside to confirm your subscription.</p>
+        <button class="dismiss-button">Dismiss message</button>
+    </div>
+
 </body>
 </html>
