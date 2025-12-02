@@ -4,7 +4,7 @@ Este repositorio nos sirve para aprender el flujo de trabajo de GIT y Github.
 
 ### Comando de configuración:
 
-* git config --global user.name "Sebastian Vicente"
+* git config --global user.name "sebastianVC-HUB"
 * git config --global user.email "sebastian.vc.0820@gmail.com"
 
 ### Comando básicos:
