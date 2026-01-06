@@ -17,6 +17,7 @@ Este repositorio nos sirve para aprender el flujo de trabajo de GIT y Github.
 * git add -A
 * git add index.html
 
+* git commit -m "Subir archivos de la primera semana"
 * git commit -m "Mi primera página"
 
 * git log
