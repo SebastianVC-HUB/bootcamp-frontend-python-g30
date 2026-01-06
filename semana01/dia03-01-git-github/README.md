@@ -11,7 +11,7 @@ Este repositorio nos sirve para aprender el flujo de trabajo de GIT y Github.
 
 * git init
 
-* git status
+* git status: Para ver el estado de nuestro repositorio.
 
 * git add .
 * git add -A
