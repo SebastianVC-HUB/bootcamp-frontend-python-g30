@@ -1,5 +1,22 @@
 p{
     color: blue;
     font-size: 15px;
+    background-color: chartreuse;
+}
+h1{
+    background-color: aqua;
+    font-size: 50px;
 }
 /* TODO: Añaden un background a la etiqueta h1 y cambien su tamaño a 50px*/
+h3{
+    background-color: orange;
+}
+#estado{
+    background-color: brown;
+}
+.btn{
+    background-color: goldenrod;
+}
+.texto-resaltado{
+    color: blue;
+}
