@@ -38,13 +38,66 @@ main{
 }
 
 .photo{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 300px;
     background-image: url(images/image-product-desktop.jpg);
     background-size: cover;
 }
 
-.contenido{
-    border: 1px solid orange;
+.content{
+    /* border: 1px solid orange; */
     width: 350px;
+    padding: 28px; /* Eapcaio entre el borde y el contenido */
+    /* El nivel de separación se toma en consideración el doble del tamañano de letra que era 14px */
+    display: flex;
+    flex-direction: column; /* Los elementos se colocan uno debajo de otro */
+    gap: 21px; /* 14px + 7px */
+    background-color:hsl(0, 0%, 100%);
+}
+
+.content h2{ /* Selectores Combinados */
+    /* border: 1px solid green; */
+    margin: 0px; /* resetea el margen de este h2 */
+
+    text-transform: uppercase;
+    font-weight: 500;
+    color: hsl(228, 12%, 48%);
+    font-size: 14px;
+    letter-spacing: 7px;
+}
+/* TODO: Terminar con los estilos de las etiquetas h1 y p aplicando colores, fuentes, tamaños */
+
+.content h1{
+    /* border: 1px solid green; */
+    margin: 0px; /* resetea el margen de este h1 */
+
+    color: hsl(158, 42%, 18%);
+    font-family: 'Fraunces', sans-serif;
+}
+
+.content p {
+    /* border: 1px solid green; */
+    margin: 0px; /* resetea el margen de este p */
+
+    color: hsl(228, 12%, 48%);
+    line-height: 1.5;
+    font-weight: 500; /* No es necesario viene por defecto en el navegador */
+}
+
+.content div{
+    display:  flex;
+    align-items: center; /* Alinea los elementos hijos verticalemente */
+    gap: 30px;
+
+}
+
+.content span{
+    font-family: 'Fraunces', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: hsl(158, 36%, 37%);
+}
+.content s{
+    color: hsl(228, 12%, 48%);
+
 }
