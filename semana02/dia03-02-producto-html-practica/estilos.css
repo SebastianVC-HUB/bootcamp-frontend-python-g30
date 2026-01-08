@@ -23,16 +23,25 @@ body{
   font-size: 14px;
   font-family: 'Montserrat', sans-serif; 
   /* font-family: 'Fraunces', sans-serif; */
+  display: flex;
+
+  justify-content: center; /* Alineamiento Horizontal */
+  align-items: center; /* Alineamiento vertical */
+
+  height: 100vh; /* vh <> Viewport height */
 }
 main{
     border: 1px solid red;
     width: 650px;
-    display: flex;   
+    display: flex; /* Flexbox */
+    min-height: 400px;
 }
 
 .photo{
     border: 1px solid blue;
     width: 300px;
+    background-image: url(images/image-product-desktop.jpg);
+    background-size: cover;
 }
 
 .contenido{
