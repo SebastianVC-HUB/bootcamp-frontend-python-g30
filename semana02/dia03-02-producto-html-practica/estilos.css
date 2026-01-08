@@ -9,10 +9,33 @@
     font-weight: 500;
 }
 
+@font-face{
+    font-family: 'Fraunces';
+    src: url(./fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf) format('truetype');
+    font-weight: 700;
+}
+
+
 /* TODO: descargar la fuente Fraunces desde Google fonts y usarla en el body */
 
 body{
   background-color: hsl(30, 38%, 92%);
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif; 
+  /* font-family: 'Fraunces', sans-serif; */
+}
+main{
+    border: 1px solid red;
+    width: 650px;
+    display: flex;   
+}
+
+.photo{
+    border: 1px solid blue;
+    width: 300px;
+}
+
+.contenido{
+    border: 1px solid orange;
+    width: 350px;
 }
