@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría CSS</title>
+    <style>
+        /* Pseudo clases */
+        /* Actuan cuando el usuario interactúa con un elemento. */
+        button{
+            background-color: red;
+        }
+        button:hover{
+            background-color: green;
+            cursor: pointer;
+        }
+        /* Pseudo elementos */
+        /* Permite crear partes virtuales de un elemento */
+        p{
+            color: blue;
+        }
+
+        p::before{
+            content: 'hola🧠' ;
+            color: green;
+        }
+        p::after{
+            content: '🎃' ;
+            color: green;
+        }
+        /* Selectores combinados */
+
+        /* Selectores descendientes */
+
+        article h2{
+            color: orange;
+        }
+
+        article strong{
+            color: gold;
+        }
+
+        /* Selector de múltiples selectores*/
+
+        h1, h2, em {
+            border: 5px solid salmon;
+        }
+
+        /* Herencia */
+
+        /* Algunos estilos se heredan automáticamente y otros no lo hacen */
+
+        body{
+            color: darkblue;          
+        }
+        button{
+            color: inherit;
+        }
+        a{
+            color: inherit;
+        }
+        /* Cascada */
+        /* La cascada decide que estilo gana cuando hay conflictos. Depende del orden, especificidad y herencia. */
+
+        header{
+            color: green;
+        }
+
+        .texto{
+            color: red
+        }
+
+        #cabecera{
+            color: blue;
+        }
+        /* Unidades de medida */
+        /*
+            Absolutas: px, cm, in
+            Relativas: em, rem, %, vw, vh (+ modernas y flexibles) 
+         */
+        /* Colores */
+        h2{
+                color: red;
+                color: #ff3647 ;  /* 3 números en hexadecimales (red, green, blue) Color en hexadecimal */
+                color: hsl(200, 100%, 50%);
+                /* Hue (matiz), Saturation (Saturación), Lightness (Luminosidad) */
+                color: rgba(0, 170, 255, 0.91);
+                /* Hue (matiz), Saturation (Saturación), Lightness (Luminosidad) con transparencia */                
+                color: rgb(0, 0, 255);
+                /* 3 números decimales van entre 0 y 2555 (rojo, verde, azul) */
+                color: rgb(0, 0, 255, 0.5);
+                /* 3 números decimales van entre 0 y 2555 (rojo, verde, azul) pero esta vez con transparencia */                
+        }
+    </style>
+</head>
+<body>
+    <button>Click aquí!</button>
+    <p>Texto especial</p>
+    <article>
+        <h2>Bienvenido</h2>
+        <strong>Hola</strong>
+    </article>
+    <section>
+        <!-- Etiquetas en bloque -->
+        <h1>Título</h1>
+        <h2>Subtítulo</h2>
+        <!-- Etiquetas en línea -->
+        <strong>Esta es una etiqueta en línea</strong>
+        <em>texto con enfasis</em>
+        <a href="">Soy un link</a>
+    </section>
+    <header id="cabecera" class="texto">¿De qué color soy?</header>
+</body>
+</html>

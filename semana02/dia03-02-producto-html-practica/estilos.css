@@ -31,10 +31,13 @@ body{
   height: 100vh; /* vh <> Viewport height */
 }
 main{
+    /* border: 1px solid red; */
     border: 1px solid red;
     width: 650px;
     display: flex; /* Flexbox */
     min-height: 400px;
+    border-radius: 7px;
+    overflow: hidden;
 }
 
 .photo{
@@ -99,5 +102,22 @@ main{
 }
 .content s{
     color: hsl(228, 12%, 48%);
-
 }
+
+.content button{
+    background-color:hsl(158, 36%, 37%);
+    border: none; /* También podemos colocar border: 0px */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700; /* El font-weight: 700 es equivalente al bold que hace referencia a la negrita */
+    color: white; /* white = hsl(0, 0%, 100%) */
+    padding: 14px;
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+}
+
+/* TODO: Añadir al boton la imagen del carrito, revisar la carpeta images. Y alinearlo como está en el diseño */
+
+/* TODO: Añadir botones redondeados a la etiqueta main, a la caja principal como está en el diseño */ 
