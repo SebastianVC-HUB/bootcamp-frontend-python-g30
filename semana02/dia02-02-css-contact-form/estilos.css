@@ -10,12 +10,26 @@ body{
 }
 .contact-form{
     /* border: 1px solid red; */
-    min-width: 300px;
+    min-width: 400px;
     background-color: white;
     border-radius: 16px;
     padding: 32px;
 }
+
+h1{
+    margin: 0;
+    margin-bottom: 32px; /* margin-bottom es margen en la parte inferior */
+    color: hsl(187, 24%, 22%);
+}
+
 label{
-    display: inline;
+    display: block;
     margin-bottom: 16px;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    display: flex;
+    margin-top: 8px;
 }
