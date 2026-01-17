@@ -32,4 +32,30 @@ input[type=email],
 textarea {
     display: flex;
     margin-top: 8px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid hsl(186, 15%, 59%);
+    padding: 16px;
+    box-sizing: border-box; /* Incluye en el cálculo de esta caja de texto, nos permite que los elementos encajen en su sitio */
+ 
 }
+
+/* TODO: Darle estilos al botón del formulario */
+
+input[type=submit]{
+    background-color: hsl(169, 82%, 27%);
+    width: 100%;
+    border: none;
+    color:  hsl(0, 0%, 100%); /* white <> #FFFFFF <> #FFF (EN FORMATO HEXADECIMAL) */
+    border-radius: 8px;
+    padding: 16px;
+    font-weight: 700;
+    letter-spacing: 1px; /* Propiedad para separar las letras de un texto */ 
+}
+
+input[type=submit]:hover{
+    background-color: hsl(169, 82%, 20%);
+    cursor: pointer;
+}
+
+
