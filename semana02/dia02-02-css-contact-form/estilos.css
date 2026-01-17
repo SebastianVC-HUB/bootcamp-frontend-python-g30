@@ -57,5 +57,25 @@ input[type=submit]:hover{
     background-color: hsl(169, 82%, 20%);
     cursor: pointer;
 }
+/* En CSS la gran ventaja del desarrollo se centra en ser específico en los requerimientos */
+.required{
+    color: hsl(169, 82%, 27%);
+    margin-left: 1px;
+}
 
-
+.query-type{
+    border: 1px solid hsl(186, 15%, 59%);
+    display: flex;
+    gap: 4px;
+    padding: 16px;
+    margin-top: 8px;
+    border-radius: 8px;
+}
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px; 
+    /* display: flex;
+    gap: 16px;
+    width: 100%; */
+}
