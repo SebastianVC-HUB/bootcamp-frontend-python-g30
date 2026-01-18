@@ -1,3 +1,0 @@
-# Asincronía
-
-### Asincronía en JS
