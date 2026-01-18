@@ -70,12 +70,14 @@ input[type=submit]:hover{
     padding: 16px;
     margin-top: 8px;
     border-radius: 8px;
+    /* width: 100%;  */
 }
+
 .row{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px; 
+    gap: 16px;
     /* display: flex;
     gap: 16px;
-    width: 100%; */
+    box-sizing: border-box; */
 }
