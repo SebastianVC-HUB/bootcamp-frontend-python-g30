@@ -75,3 +75,17 @@ JS no espera a que algo lento termine
     JSON.parse('{ "name": "Alonso" }') // Convertimos una cadena de texto con el formato JSON a un objeto JS
     ```
 ###
+
+## STATUS CODE
+
+https://http.cat/ 
+
+Para lo que sirven estos STATUS CODE es que cada vez que haya una petición por lo general el servidor tiene que estar preparado.
+
+200      -> Todo OK
+201      -> Recurso creado (POST)
+400      -> Error dle Cliente (No se encontro la información)
+401      -> No autenticación (No autenticado)
+403      -> Sin permisos
+404      -> El recurso no existe
+500      -> Error del servidor

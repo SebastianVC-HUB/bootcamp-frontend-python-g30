@@ -30,5 +30,44 @@ const fetchUsersConRetorno = async () => { // Retorna una promesa  (Promise)
     return await response.json()
 }
 
-fetchUsersConRetorno() // Retorna una promesa
-    .then(users => console.log(users))
+// fetchUsersConRetorno() // Retorna una promesa
+//  .then(users => console.log(users))
+
+const fetchUsersConManejoDeErrores = async () => {
+    try{
+        const response = await fetch(url)
+
+        console.log(response.status)
+        
+        if(response.status !== 200){
+            console.log('Tuvimos problemas para cargar el recursos users')
+            // return
+            throw new Error('ERROR HTTP:' + response.status)
+        }
+
+        return await response.json() // STATUS CODE -> 200  OK
+    } catch(error){
+        console.log(error)
+    }
+}
+
+const renderUsers = async (users) =>{
+    const divApp = document.querySelector('#app')
+
+    let userList = ''
+
+    users.forEach(user => {
+        userList += `
+        <div>
+            <h2>${user.id} - ${user.name} (${user.email})</h2>
+            <p>${user.company.name}</p>
+        </div>
+        `
+    });
+
+    divApp.innerHTML = userList
+}
+
+fetchUsersConManejoDeErrores()
+    .then(users => renderUsers(users))
+
