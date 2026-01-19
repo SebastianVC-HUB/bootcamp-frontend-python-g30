@@ -51,3 +51,17 @@ fetch(url)
         console.log(data)
         renderTodos(data)
     })
+    .catch(error => {
+        // Sirve para controlar errores inesperados
+        console.log(error)
+    })
+
+// TODO: Renderizar la lista de posts del servicio jsonplaceholder con su título, id y body.
+
+// https://jsonplaceholder.typicode.com/posts 
+
+
+
+
+
+    
