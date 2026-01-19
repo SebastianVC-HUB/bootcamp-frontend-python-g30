@@ -45,3 +45,33 @@ Fin de mi programa
     PATCH -> Nos permite actualizar datos pero de una forma más atómica.
     DELETE -> Eliminar datos.
 ###
+
+### FORMATO JSON
+    Es un formato estándar para enviar datos.
+    El formato JSON no es más que un formato muy parecido a lo que es un objeto en javascript 
+    Formato javascript con un formato válido.
+
+    ```js
+    {
+        nombre: 'Victor',
+        edad: 39
+    }
+    ```
+    Este es el formato JSON adecuado:
+
+
+    ```json
+    {
+        "nombre": "Victor",
+        "edad": 39,
+        "encendido" : true
+    }
+    ```
+
+    En javascript JS:
+
+    ```js
+    JSON.stringify({ name: 'Alonso' }) // Convertimos a una cadena de texto con el formato JSON
+    JSON.parse('{ "name": "Alonso" }') // Convertimos una cadena de texto con el formato JSON a un objeto JS
+    ```
+###

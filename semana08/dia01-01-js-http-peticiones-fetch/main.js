@@ -10,3 +10,8 @@ setTimeout(()=>{
 }, 2000);
 
 console.log('Fin de mi programa')
+
+// Formato JSON 
+
+console.log(JSON.stringify({ name: 'Alonso' }))
+console.log(JSON.parse('{ "name": "Alonso" }'))
