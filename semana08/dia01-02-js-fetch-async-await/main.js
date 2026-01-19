@@ -35,6 +35,8 @@ const fetchUsersConRetorno = async () => { // Retorna una promesa  (Promise)
 
 const fetchUsersConManejoDeErrores = async () => {
     try{
+
+        document.querySelector('#estado').textContent = 'Cargando....'
         const response = await fetch(url)
 
         console.log(response.status)
@@ -45,7 +47,9 @@ const fetchUsersConManejoDeErrores = async () => {
             throw new Error('ERROR HTTP:' + response.status)
         }
 
-        return await response.json() // STATUS CODE -> 200  OK
+        const data = await response.json() // STATUS CODE -> 200  OK
+        document.querySelector('#estado').textContent = ''
+        return data
     } catch(error){
         console.log(error)
     }
@@ -69,5 +73,16 @@ const renderUsers = async (users) =>{
 }
 
 fetchUsersConManejoDeErrores()
-    .then(users => renderUsers(users))
+    .then(users => {
+        const filteredUsers = users.filter(user => user.address.city === "Gwenborough"
+        )
 
+        document.querySelector('#total').textContent = `Hay ${users.length} usuarios`
+
+        renderUsers(filteredUsers)
+    })
+
+// TODO: Resolver estos ejercicios
+//Mostrar un mensaje de cargando
+//Mostrar solo usuarios de una ciudad, la ciudad es a su elección
+//Mostrar cuántos usuarios hay
