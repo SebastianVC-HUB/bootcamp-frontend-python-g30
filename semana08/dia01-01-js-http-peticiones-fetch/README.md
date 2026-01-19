@@ -12,9 +12,9 @@ JS no espera a que algo lento termine
     }, 2000);
 
     console.log('Fin de mi programa')
-Empezando mi programa
-Esta línea tardará 2 segundos o 2000ms
-Fin de mi programa
+    Empezando mi programa
+    Esta línea tardará 2 segundos o 2000ms
+    Fin de mi programa
 ```
 ### API
 

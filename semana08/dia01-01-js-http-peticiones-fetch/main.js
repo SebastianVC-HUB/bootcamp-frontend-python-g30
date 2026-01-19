@@ -15,3 +15,7 @@ console.log('Fin de mi programa')
 
 console.log(JSON.stringify({ name: 'Alonso' }))
 console.log(JSON.parse('{ "name": "Alonso" }'))
+
+// OBJETIVO: Traer información en formato JSON desde una URL
+
+const url = "https://jsonplaceholder.typicode.com/todos"
