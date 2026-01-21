@@ -1,3 +1,9 @@
+const LIMIT = 6
+
+let page = 1
+let totalPages = 0
+let count = 0
+
 // TODO: Listar los pokemons en la consola usando la pokeapi
 // https://pokeapi.co/api/v2/pokemon 
 
@@ -7,9 +13,11 @@
 //     .then(response => response.json())
 //     .then(data => console.log(data))
 
-const fetchPokemons = async () => {
+const fetchPokemons = async (page = 30) => {
+    const OFFSET = (page - 1)*LIMIT
+
     // const API_URL = 'https://pokeapi.co/api/v2/pokemon'
-    const API_URL = 'https://pokeapi.co/api/v2/pokemon?limit=6&offset=0'
+    const API_URL = `https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${OFFSET}`
     const response = await fetch(API_URL) // Devuelve una promesa
 
     const data = await response.json() // Convierte la respuesta en formato JS Object
@@ -50,12 +58,13 @@ const renderPokemons = (pokemons = []) => {
                     src="${pokemon.image}"
                     width="80"
                     height="80"
+                    onerror="this.src='https://placehold.co/80x80'"
                 />
                 <div class="pokemon-item__buttons">
                     <button>
                         <img src="images/icon-star.svg"  width="16"/>
                     </button>
-                                                          <button>
+                                                                              <button>
                         <img src="images/icon-edit.svg"  width="16"/>
                     </button>
                 </div>
@@ -65,11 +74,80 @@ const renderPokemons = (pokemons = []) => {
     })
 
     pokemonsList.innerHTML = elements
-
+    
+    totalPages = Math.ceil (count / LIMIT)
+    
+    document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
 }
+
+const nextPageButton = document.querySelector('#nextPage')
+const prevPageButton = document.querySelector('#prevPage')
+const firstPageButton = document.querySelector('#firstPage')
+const lastPageButton = document.querySelector('#lastPage')
+
+nextPageButton.addEventListener('click', async (event) => {
+    console.log('click next')
+
+    page = page + 1
+
+    if (page > totalPages) {
+        page = totalPages
+
+        return
+    }
+
+    const dataPokemons = await fetchPokemons(page)
+
+    renderPokemons(dataPokemons.results)
+
+})
+
+prevPageButton.addEventListener('click', async (event) => {
+    console.log('click next')
+
+    page = page - 1
+
+    if(page <= 0){
+        page = 1
+
+
+        return
+    }
+
+    const dataPokemons = await fetchPokemons(page)
+
+    renderPokemons(dataPokemons.results)
+
+})
+
+firstPageButton.addEventListener('click', async (event) => {
+
+    page = 1
+
+    const dataPokemons = await fetchPokemons(page)
+
+    renderPokemons(dataPokemons.results)
+
+})
+
+lastPageButton.addEventListener('click', async (event) => {
+
+    page = totalPages
+
+    
+    const dataPokemons = await fetchPokemons(page)
+
+    renderPokemons(dataPokemons.results)
+
+})
+
+// TODO: Implementar los botones: anterior, primero y últmo. Y adicionalmente actualicen la página actual
 
 fetchPokemons()
     .then(data => {
         console.log (data.results)
+
+        count = data.count
+
         renderPokemons(data.results)
     })
