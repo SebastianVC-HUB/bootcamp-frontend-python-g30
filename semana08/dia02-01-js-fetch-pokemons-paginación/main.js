@@ -4,7 +4,9 @@ let page = 1
 let totalPages = 0
 let count = 0
 
-let pokemonFavorites = []
+let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
+
+console.log(pokemonFavorites)
 
 // TODO: Listar los pokemons en la consola usando la pokeapi
 // https://pokeapi.co/api/v2/pokemon 
@@ -15,7 +17,7 @@ let pokemonFavorites = []
 //     .then(response => response.json())
 //     .then(data => console.log(data))
 
-const fetchPokemons = async (page = 30) => {
+const fetchPokemons = async (page = 1) => {
     const OFFSET = (page - 1)*LIMIT
 
     // const API_URL = 'https://pokeapi.co/api/v2/pokemon'
@@ -30,12 +32,13 @@ const fetchPokemons = async (page = 30) => {
         const id = pokemon.url.split('/').at(6)
         const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
 
+        const foundFavorite = pokemonFavorites.find(favorite => favorite.id == id)
         return {
             ...pokemon, //name, url
             id,
             image,
-            isFavorite: false
-        }
+            isFavorite: Boolean(foundFavorite) // CAST - > CONVERTIMOS UN TIPO DE DATO A OTRO: OBJETO A BOOLEAN
+        } 
     })
 
     return {
@@ -58,6 +61,8 @@ const toggleFavorite = async (id) =>{
         // Agregar el pokemon a favoritos
         pokemonFavorites.push({id})
     }
+
+    localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
 
     const data = await fetchPokemons(page)
     renderPokemons(data.results)
@@ -103,6 +108,8 @@ const renderPokemons = (pokemons = []) => {
     totalPages = Math.ceil (count / LIMIT)
     
     document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
+
+    //TODO: Actualizar la cantidad de pokemons favoritos en la pantalla. Ej Favoritos: 8
 }
 
 const nextPageButton = document.querySelector('#nextPage')
