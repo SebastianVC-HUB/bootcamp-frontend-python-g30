@@ -47,19 +47,20 @@ const fetchPokemons = async (page = 1) => {
     }
 }
 
-const toggleFavorite = async (id) =>{
+const toggleFavorite = async (id, name) =>{
     console.log('toggleFavorite', id)
     const foundPokemonFavorite = pokemonFavorites.filter(
-        favorite => favorite.id == id
+        favorite => favorite.id === id
     )
     const existPokemonFavorite = foundPokemonFavorite.length > 0
+
     if(existPokemonFavorite){
         //Retirar el pokemon de favoritos
         pokemonFavorites = pokemonFavorites.filter(pokemon =>
         pokemon.id != id)
     } else {
         // Agregar el pokemon a favoritos
-        pokemonFavorites.push({id})
+        pokemonFavorites.push({id, name })
     }
 
     localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
@@ -69,6 +70,24 @@ const toggleFavorite = async (id) =>{
 
     console.log(pokemonFavorites)
 }
+
+// TODO: Leer la propiedad image del pokemon y mostrarla en el formulario
+
+const readPokemon = (pokemonId) => {
+    console.log('readPokemon', pokemonId)
+
+    const currentFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
+
+    const foundPokemon = currentFavorites.find(favorite => favorite.id === pokemonId)
+
+    console.log(foundPokemon)
+
+    const pokemonForm = document.forms['pokemonForm'] // Accedemos al formulario mediante el objeto forms.
+    
+    pokemonForm.name.value = foundPokemon.name
+}
+
+
 
 //Renderizar las funciones es tomar los datos que se procesan y mostrarlos en pantalla y si hubiera alguna modificación de la misma manera.
 
@@ -90,11 +109,11 @@ const renderPokemons = (pokemons = []) => {
                     onerror="this.src='https://placehold.co/80x80'"
                 />
                 <div class="pokemon-item__buttons">
-                    <button onclick="toggleFavorite('${pokemon.id}')">
+                    <button onclick="toggleFavorite('${pokemon.id}', '${pokemon.name}')">
                         <svg class="${pokemon.isFavorite ? 'is-favorite' : ''
                         }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg>
                     </button>
-                    <button>
+                    <button onclick="readPokemon('${pokemon.id}')">
                         <img src="images/icon-edit.svg"  width="16"/>
                     </button>
                 </div>
@@ -110,6 +129,10 @@ const renderPokemons = (pokemons = []) => {
     document.querySelector('#currentPage').textContent = `${page} de ${totalPages}`
 
     //TODO: Actualizar la cantidad de pokemons favoritos en la pantalla. Ej Favoritos: 8
+
+   document.querySelector('#numberPokemons').textContent = `Favorites: ${pokemonFavorites.length}`
+
+    
 }
 
 const nextPageButton = document.querySelector('#nextPage')
