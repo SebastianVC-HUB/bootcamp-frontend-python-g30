@@ -4,6 +4,8 @@ let page = 1
 let totalPages = 0
 let count = 0
 
+let pokemonFavorites = []
+
 // TODO: Listar los pokemons en la consola usando la pokeapi
 // https://pokeapi.co/api/v2/pokemon 
 
@@ -31,7 +33,8 @@ const fetchPokemons = async (page = 30) => {
         return {
             ...pokemon, //name, url
             id,
-            image
+            image,
+            isFavorite: false
         }
     })
 
@@ -39,6 +42,27 @@ const fetchPokemons = async (page = 30) => {
         ...data, // count, next, previous, results
         results: dataResults
     }
+}
+
+const toggleFavorite = async (id) =>{
+    console.log('toggleFavorite', id)
+    const foundPokemonFavorite = pokemonFavorites.filter(
+        favorite => favorite.id == id
+    )
+    const existPokemonFavorite = foundPokemonFavorite.length > 0
+    if(existPokemonFavorite){
+        //Retirar el pokemon de favoritos
+        pokemonFavorites = pokemonFavorites.filter(pokemon =>
+        pokemon.id != id)
+    } else {
+        // Agregar el pokemon a favoritos
+        pokemonFavorites.push({id})
+    }
+
+    const data = await fetchPokemons(page)
+    renderPokemons(data.results)
+
+    console.log(pokemonFavorites)
 }
 
 //Renderizar las funciones es tomar los datos que se procesan y mostrarlos en pantalla y si hubiera alguna modificación de la misma manera.
@@ -61,10 +85,11 @@ const renderPokemons = (pokemons = []) => {
                     onerror="this.src='https://placehold.co/80x80'"
                 />
                 <div class="pokemon-item__buttons">
-                    <button>
-                        <img src="images/icon-star.svg"  width="16"/>
+                    <button onclick="toggleFavorite('${pokemon.id}')">
+                        <svg class="${pokemon.isFavorite ? 'is-favorite' : ''
+                        }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg>
                     </button>
-                                                                              <button>
+                    <button>
                         <img src="images/icon-edit.svg"  width="16"/>
                     </button>
                 </div>
