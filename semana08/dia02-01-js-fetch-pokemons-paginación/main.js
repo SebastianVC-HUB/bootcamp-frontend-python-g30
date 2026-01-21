@@ -47,7 +47,7 @@ const fetchPokemons = async (page = 1) => {
     }
 }
 
-const toggleFavorite = async (id, name) =>{
+const toggleFavorite = async (id, name, image) =>{
     console.log('toggleFavorite', id)
     const foundPokemonFavorite = pokemonFavorites.filter(
         favorite => favorite.id === id
@@ -60,7 +60,7 @@ const toggleFavorite = async (id, name) =>{
         pokemon.id != id)
     } else {
         // Agregar el pokemon a favoritos
-        pokemonFavorites.push({id, name })
+        pokemonFavorites.push({id, name, image })
     }
 
     localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
@@ -85,6 +85,7 @@ const readPokemon = (pokemonId) => {
     const pokemonForm = document.forms['pokemonForm'] // Accedemos al formulario mediante el objeto forms.
     
     pokemonForm.name.value = foundPokemon.name
+    pokemonForm.image.value = foundPokemon.image
 }
 
 
@@ -109,12 +110,12 @@ const renderPokemons = (pokemons = []) => {
                     onerror="this.src='https://placehold.co/80x80'"
                 />
                 <div class="pokemon-item__buttons">
-                    <button onclick="toggleFavorite('${pokemon.id}', '${pokemon.name}')">
+                    <button onclick="toggleFavorite('${pokemon.id}', '${pokemon.name}','${pokemon.image}')">
                         <svg class="${pokemon.isFavorite ? 'is-favorite' : ''
                         }" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg>
                     </button>
-                    <button onclick="readPokemon('${pokemon.id}')">
-                        <img src="images/icon-edit.svg"  width="16"/>
+                    <button onclick="readPokemon('${pokemon.id}')" class="${pokemon.isFavorite ? '' : 'is-hidden'}">
+                        <img src="images/icon-edit.svg"  width="24"/>
                     </button>
                 </div>
             </article>
