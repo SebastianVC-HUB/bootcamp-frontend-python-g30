@@ -1,0 +1,142 @@
+body {
+  background-color: #f4f7f6;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.dragonball-app {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.dragonball-wrapper {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dragonball-header {
+  text-align: center;
+}
+
+.dragonball-header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+
+.dragonball-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+
+.dragonball-item {
+  background-color: #ffffff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.dragonball-item:hover {
+  transform: translateY(-8px);
+}
+
+.dragonball-item-image {
+  height: 250px;
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.dragonball-item-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.dragonball-item-info {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.dragonball-item-info h2 {
+  font-size: 1.25rem;
+  margin: 0 0 10px 0;
+}
+
+.dragonball-item-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.dragonball-item-actions {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.dragonball-fav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Color plomo por defecto para el corazón */
+.dragonball-fav-btn svg {
+  color: #cccccc; /* Borde plomo */
+  fill: #cccccc;  /* Relleno plomo */
+  transition: all 0.2s ease;
+}
+
+/* Color rojo cuando es favorito */
+.dragonball-fav-btn svg.is-favorite {
+  color: #e74c3c; /* Borde rojo */
+  fill: #e74c3c;  /* Relleno rojo */
+}
+
+
+.dragonball-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.dragonball-button {
+  background-color: #5dade2;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.dragonball-button:hover {
+  background-color: #3498db;
+}
+
+.dragonball-current-page {
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
