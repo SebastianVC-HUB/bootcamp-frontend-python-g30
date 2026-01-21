@@ -36,7 +36,10 @@ const fetchPokemons = async (page = 1) => {
         return {
             ...pokemon, //name, url
             id,
-            image,
+            name: Boolean(foundFavorite) ? foundFavorite.name :
+            pokemon.name, 
+            image: Boolean(foundFavorite) ? foundFavorite.image :
+            image, 
             isFavorite: Boolean(foundFavorite) // CAST - > CONVERTIMOS UN TIPO DE DATO A OTRO: OBJETO A BOOLEAN
         } 
     })
@@ -84,8 +87,11 @@ const readPokemon = (pokemonId) => {
 
     const pokemonForm = document.forms['pokemonForm'] // Accedemos al formulario mediante el objeto forms.
     
+    pokemonForm.id.value = foundPokemon.id
     pokemonForm.name.value = foundPokemon.name
     pokemonForm.image.value = foundPokemon.image
+
+    document.querySelector('#pokemonTitle').textContent = `#${foundPokemon.id}`
 }
 
 
@@ -135,6 +141,37 @@ const renderPokemons = (pokemons = []) => {
 
     
 }
+
+const pokemonForm = document.querySelector('#pokemonForm')
+
+pokemonForm.addEventListener('submit', async (event) =>{
+    event.preventDefault()
+
+    const pokemonFormElement = document.forms['pokemonForm']
+
+    const id = pokemonFormElement.id.value
+    const name = pokemonFormElement.name.value
+    const image = pokemonFormElement.image.value
+
+    const updatePokemons = pokemonFavorites.map(pokemon =>{
+        if(pokemon.id === id){
+            return {id, name, image}
+        }
+        return pokemon
+    })
+
+    pokemonFavorites = updatePokemons
+
+    localStorage.setItem('pokemon-favorites', JSON.stringify(updatePokemons))
+
+    pokemonFormElement.reset()
+
+    const data = await fetchPokemons(page)
+
+    renderPokemons(data.results)
+
+
+})
 
 const nextPageButton = document.querySelector('#nextPage')
 const prevPageButton = document.querySelector('#prevPage')
