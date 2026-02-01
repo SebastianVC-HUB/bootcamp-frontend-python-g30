@@ -1,0 +1,19 @@
+### Listar todas las películas 
+GET http://localhost:3000/movies
+
+### Obtener una película 
+GET http://localhost:3000/movies/9
+
+### Crear una película
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "name": "G31 La película",
+  "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+  "release": "2026-01-14",
+  "genreId": 3,
+  "summary": "G30 la película más esperada del año"
+}
+
+### NOTA: El que hace todo el trabajo es json-server, es el que esta recepcionando la información es este servidor que acabamos de levantar que esta en el local host 3000. El recepciona estas peticiones y las introduce en el arreglo que tenemos en el archivo db.json.

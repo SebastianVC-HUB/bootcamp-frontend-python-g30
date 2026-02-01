@@ -71,6 +71,22 @@
       "release": "2023-04-05",
       "genreId": 3,
       "summary": "Resumen de prueba"
+    },
+    {
+      "name": "G30 La película",
+      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "release": "2026-01-14",
+      "genreId": 3,
+      "summary": "G30 la película más esperada del año",
+      "id": 10
+    },
+    {
+      "name": "G31 La película",
+      "image": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
+      "release": "2026-01-14",
+      "genreId": 3,
+      "summary": "G31 la película más esperada del año",
+      "id": 11
     }
   ]
 }
